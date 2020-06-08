@@ -2,7 +2,7 @@ language: python
 python: 3.6
 branches:
   only:
-    - master
+    - ias-3.10.0
     - /^[0-9.]+-hotfix$/
 jenkins:
   pipeline_jenkinsfile: .ci/Jenkinsfile

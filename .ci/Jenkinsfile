@@ -7,7 +7,7 @@
  */
 
 //use tag release step provided by integralads/jenkins-pipeline-scripts repository
-createTagOnMergeTo('master')
+createTagOnMergeTo('ias-3.10.0')
 createTagOnMergeTo('/^[0-9.]+-hotfix$/')
 
 //use nexus publish step provided by integralads/jenkins-pipeline-scripts repository
