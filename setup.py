@@ -204,7 +204,7 @@ with open(os.path.join(CWD, 'README.rst')) as f:
     long_description = f.read()
 
 setup(
-    name='aerospike',
+    name='ias-aerospike',
     version=config.get('metadata', 'current_version'),
     description='Aerospike Client Library for Python',
     long_description=long_description,
