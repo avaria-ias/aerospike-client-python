@@ -1,0 +1,15 @@
+/*
+  These steps are provided by Cloud9 team maintained global shared library.
+  https://github.com/integralads/jenkins-pipeline-scripts/tree/master/vars
+  See:
+    - publishToNexusOnNewTag.groovy
+    - createTagOnMergeTo.groovy
+ */
+
+//use tag release step provided by integralads/jenkins-pipeline-scripts repository
+createTagOnMergeTo('ias-3.10.0')
+createTagOnMergeTo('/^[0-9.]+-hotfix$/')
+
+//use nexus publish step provided by integralads/jenkins-pipeline-scripts repository
+Map settings = [ pipeline_generator: global_pipeline_generator ]
+publishToNexusOnNewTag(settings)
