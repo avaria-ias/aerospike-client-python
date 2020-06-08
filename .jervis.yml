@@ -1,0 +1,8 @@
+language: python
+python: 3.6
+branches:
+  only:
+    - master
+    - /^[0-9.]+-hotfix$/
+jenkins:
+  pipeline_jenkinsfile: .ci/Jenkinsfile

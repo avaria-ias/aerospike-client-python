@@ -22,6 +22,14 @@ import platform
 import sys
 from setuptools import setup, Extension
 
+try:
+    import configparser
+except ImportError:
+    import ConfigParser as configparser
+
+config = configparser.ConfigParser()
+config.read('setup.cfg')
+
 ################################################################################
 # ENVIRONMENT VARIABLES
 ################################################################################
@@ -195,13 +203,9 @@ if not has_c_client:
 with open(os.path.join(CWD, 'README.rst')) as f:
     long_description = f.read()
 
-# Get the version from the relevant file
-with open(os.path.join(CWD, 'VERSION')) as f:
-    version = f.read()
-
 setup(
     name='aerospike',
-    version=version.strip(),
+    version=config.get('metadata', 'current_version'),
     description='Aerospike Client Library for Python',
     long_description=long_description,
     author='Aerospike, Inc.',
