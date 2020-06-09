@@ -183,17 +183,19 @@ else:
 
 # If the C client is packaged elsewhere, assume the libraries are available
 
-if os.environ.get('NO_RESOLVE_C_CLIENT_DEP', None):
-    has_c_client = True
-    libraries = libraries + ['aerospike']
-else:
-    has_c_client = False
+resolve_c_client()
 
-
-if not has_c_client:
-    if (('build' in sys.argv or 'build_ext' in sys.argv or
-         'install' in sys.argv or 'bdist_wheel' in sys.argv)):
-        resolve_c_client()
+# if os.environ.get('NO_RESOLVE_C_CLIENT_DEP', None):
+#     has_c_client = True
+#     libraries = libraries + ['aerospike']
+# else:
+#     has_c_client = False
+#
+#
+# if not has_c_client:
+#     if (('build' in sys.argv or 'build_ext' in sys.argv or
+#          'install' in sys.argv or 'bdist_wheel' in sys.argv)):
+#         resolve_c_client()
 
 ################################################################################
 # SETUP
